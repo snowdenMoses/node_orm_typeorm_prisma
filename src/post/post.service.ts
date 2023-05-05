@@ -1,4 +1,4 @@
-import { Post, PrismaClient } from "@prisma/client"
+import { posts, PrismaClient } from "@prisma/client"
 import { IPostActions } from "./post.interface";
 
 class PostService implements IPostActions {
@@ -6,16 +6,16 @@ class PostService implements IPostActions {
     constructor() {
         this.prisma = new PrismaClient()
     }
-    public findMany = async (): Promise<Post[]> => {
-        const post: Post[] = await this.prisma.post.findMany()
+    public findMany = async (): Promise<posts[]> => {
+        const post: posts[] = await this.prisma.posts.findMany()
         return post
     }
-    public findUnique = async (postId: number): Promise<Post | null> => {
-        const post: Post | null = await this.prisma.post?.findUnique({ where: { id: postId } })
+    public findUnique = async (postId: number): Promise<posts | null> => {
+        const post: posts | null = await this.prisma.posts?.findUnique({ where: { id: postId } })
         return post
     }
-    public create = async (body: Post): Promise<any> => {
-        const post: Post = await this.prisma.post.create({ data: body })
+    public create = async (body: posts): Promise<any> => {
+        const post: posts = await this.prisma.posts.create({ data: body })
         return post
     }
 

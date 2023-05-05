@@ -10,7 +10,7 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model User{
+model users{
   id String @id @default(uuid())
   name String
   gender String
@@ -18,13 +18,13 @@ model User{
   isActive Boolean
   created_at DateTime? @default(now())
   updated_at DateTime? @updatedAt
-  post Post[]
+  post posts[]
 }
 
-model Post{
+model posts{
   id Int @id @default(autoincrement())
   title String
   post_description String
-  owner User @relation(fields: [ownerId], references: [id])
+  owner users @relation(fields: [ownerId], references: [id])
   ownerId String
 }

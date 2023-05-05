@@ -1,7 +1,7 @@
-import { Post } from "@prisma/client"
+import { posts } from "@prisma/client"
 export interface IPostActions{
-   findMany(): Promise<Post[]>
-   findUnique(postId: number): Promise<Post | null>
-   create(body: Post): Promise<Post>
+   findMany(): Promise<posts[]>
+   findUnique(postId: number): Promise<posts | null>
+   create(body: posts): Promise<posts>
 }
 

@@ -1,4 +1,4 @@
-import { User } from "@prisma/client"
+import { users } from "@prisma/client"
 import express, {Response, Request} from "express"
 import { IUserActions } from "./user.interface"
 
@@ -7,7 +7,7 @@ class UserController{
     }
 
     public findAllUsers = async (req: Request, res:Response)=>{
-        const users: User[] = await this.userService.findAllUsers()
+        const users: users[] = await this.userService.findAllUsers()
         res.status(200).json(users)
     }
     public findUserById = async (req: Request, res:Response)=>{

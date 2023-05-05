@@ -1,4 +1,4 @@
-import { Post } from "@prisma/client";
+import { posts } from "@prisma/client";
 import e, { Request, Response } from "express";
 import { IPostActions } from "./post.interface";
 
@@ -9,7 +9,7 @@ class PostController{
 
     public findMany = async(req: Request, res: Response) => {
         try{
-            const post: Post[] = await this.postService.findMany()
+            const post: posts[] = await this.postService.findMany()
             res.status(200).json(post)
         }
         catch(e){
@@ -19,7 +19,7 @@ class PostController{
     public findUnique = async(req: Request, res: Response) => {
         try{
             const { id } = req.params
-            const post: Post | null = await this.postService.findUnique(Number(id))
+            const post: posts | null = await this.postService.findUnique(Number(id))
             res.status(200).json(post)
         }
         catch(e){
@@ -29,7 +29,7 @@ class PostController{
     public create = async(req: Request, res: Response) => {
         try{
             const body = req.body
-            const post: Post = await this.postService.create(body)
+            const post: posts = await this.postService.create(body)
             res.status(200).json(post)
         }
         catch(e){

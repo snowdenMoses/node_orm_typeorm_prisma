@@ -1,8 +1,8 @@
-import { User } from "@prisma/client"
+import { users } from "@prisma/client"
 export interface IUserActions{
-    findAllUsers(): Promise<User[]>
-    findUserById(userId? : string): Promise<User | null>
-    createUser(body: User): Promise<any>
+    findAllUsers(): Promise<users[]>
+    findUserById(userId?: string): Promise<users | null>
+    createUser(body: users): Promise<any>
 }
 
 

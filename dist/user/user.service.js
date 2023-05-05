@@ -13,7 +13,7 @@ const client_1 = require("@prisma/client");
 class UserService {
     constructor() {
         this.findAllUsers = () => __awaiter(this, void 0, void 0, function* () {
-            const users = yield this.prisma.user.findMany({ where: { isActive: true },
+            const users = yield this.prisma.users.findMany({ where: { isActive: true },
                 include: {
                     post: true
                 }
@@ -22,15 +22,15 @@ class UserService {
         });
         this.findUserById = (userId) => __awaiter(this, void 0, void 0, function* () {
             var _a;
-            const user = yield ((_a = this.prisma.user) === null || _a === void 0 ? void 0 : _a.findUnique({ where: { id: userId },
+            const user = yield ((_a = this.prisma.users) === null || _a === void 0 ? void 0 : _a.findUnique({ where: { id: userId },
                 include: {
-                    post: true,
+                    posts: true,
                 }
             }));
             return user;
         });
         this.createUser = (body) => __awaiter(this, void 0, void 0, function* () {
-            const user = yield this.prisma.user.create({ data: body });
+            const user = yield this.prisma.users.create({ data: body });
             return user;
         });
         this.prisma = new client_1.PrismaClient();
