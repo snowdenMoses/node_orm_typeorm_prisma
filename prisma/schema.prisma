@@ -22,7 +22,7 @@ model users{
 }
 
 model posts{
-  id Int @id @default(autoincrement())
+  id String @id @default(uuid())
   title String
   post_description String
   owner users @relation(fields: [ownerid], references: [id])
