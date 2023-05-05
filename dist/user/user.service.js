@@ -24,7 +24,7 @@ class UserService {
             var _a;
             const user = yield ((_a = this.prisma.users) === null || _a === void 0 ? void 0 : _a.findUnique({ where: { id: userId },
                 include: {
-                    posts: true,
+                    post: true,
                 }
             }));
             return user;

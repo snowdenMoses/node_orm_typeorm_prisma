@@ -5,7 +5,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
      "comment": "concurrently -k \"tsc -w\" \"nodemon ./dist/server.js\" ",
-    "dev": "node ./dist/server.js",
+    "start": "node ./dist/server.js",
     "ts-node": "ts-node",
     "typeorm": "node --require ts-node/register ./node_modules/typeorm/cli.js",
     "typeorm:generate": "npm run typeorm typeorm migration:create -n MyNewMigration",
