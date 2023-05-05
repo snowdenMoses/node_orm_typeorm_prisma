@@ -13,7 +13,7 @@ const client_1 = require("@prisma/client");
 class UserService {
     constructor() {
         this.findAllUsers = () => __awaiter(this, void 0, void 0, function* () {
-            const users = yield this.prisma.users.findMany({ where: { isActive: true },
+            const users = yield this.prisma.users.findMany({ where: { isactive: true },
                 include: {
                     post: true
                 }

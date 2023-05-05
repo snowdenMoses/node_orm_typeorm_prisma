@@ -7,7 +7,7 @@ class UserService implements IUserActions{
         this.prisma = new PrismaClient()
     }
     public findAllUsers = async (): Promise<users[]> =>{
-        const users = await this.prisma.users.findMany({where:{isActive: true},
+        const users = await this.prisma.users.findMany({where:{isactive: true},
         include: {
             post: true
         }
