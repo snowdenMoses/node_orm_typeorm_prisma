@@ -10,9 +10,9 @@ class UserRoute {
     public router = express.Router()
     private routeInitializer = () =>{
         
-        this.router.get(`/users`, this.userController.findAllUsers)
+        this.router.get(`${this.path}`, this.userController.findAllUsers)
         this.router.get(`${this.path}/:id`, this.userController.findUserById)
-        this.router.post(`${this.path}/:id`, this.userController.createUser)
+        this.router.post(`${this.path}/`, this.userController.createUser)
     }
 
 }
